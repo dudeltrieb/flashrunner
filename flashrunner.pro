@@ -20,9 +20,7 @@ HEADERS  += \
     readingthread.h \
     comclass.h
 
-LIBS += -L"c:\myLib\i386" -lftd2xx
-
-INCLUDEPATH += c:/myLib
+include(ftd2xx.pri)
 
 
 

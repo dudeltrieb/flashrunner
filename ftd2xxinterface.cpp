@@ -1,6 +1,6 @@
-#include "comclass.h"
+#include "ftd2xxinterface.h"
 
-COMClass::COMClass()
+Ftd2xxInterface::Ftd2xxInterface()
 {
     ftStatus = FT_Open(1, &ftHandle);
     if(ftStatus != FT_OK) { // FT_Open failed
@@ -21,7 +21,7 @@ COMClass::COMClass()
 
 }
 
-void COMClass::SendString(QString Message)
+void Ftd2xxInterface::SendString(QString Message)
 {
     char neu[1024] = "";
     strcpy(neu, (Message+ "\r").toAscii().data());

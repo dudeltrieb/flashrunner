@@ -1,24 +1,17 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2011-11-24T10:03:41
-#
-#-------------------------------------------------
-
-QT       += core gui
+QT += core gui
 
 TARGET = flashRunner
 TEMPLATE = app
 
-
 SOURCES += main.cpp \
     runnergui.cpp \
     readingthread.cpp \
-    comclass.cpp
+    ftd2xxinterface.cpp
 
 HEADERS  += \
     runnergui.h \
     readingthread.h \
-    comclass.h
+    ftd2xxinterface.h
 
 include(ftd2xx.pri)
 

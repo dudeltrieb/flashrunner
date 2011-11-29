@@ -1,14 +1,16 @@
-#ifndef COMCLASS_H
-#define COMCLASS_H
+#ifndef FTD2XXINTERFACE_H
+#define FTD2XXINTERFACE_H
 
 #include <QtGui>
+#ifdef Q_WS_WIN
 #include "windows.h"
-#include "ftd2xx.h"
+#endif
+#include <ftd2xx.h>
 
-class COMClass
+class Ftd2xxInterface
 {
 public:
-    COMClass();
+    Ftd2xxInterface();
     FT_HANDLE ftHandle;
     FT_DEVICE ftDevice;
     FT_STATUS ftStatus;
@@ -22,4 +24,4 @@ private:
     char description[64];
 };
 
-#endif // COMCLASS_H
+#endif // FTD2XXINTERFACE_H

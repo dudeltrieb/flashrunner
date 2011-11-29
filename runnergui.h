@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QtGui>
-#include "comclass.h"
+#include "ftd2xxinterface.h"
 
 
 class RunnerGUI : public QWidget
@@ -12,7 +12,7 @@ class RunnerGUI : public QWidget
 
 public:
     RunnerGUI(QWidget *parent = 0);
-    void Init(COMClass *comClass);
+    void Init(Ftd2xxInterface *comClass);
 
 
 public slots:
@@ -24,7 +24,7 @@ private:
     QLabel *COMName;
     QLineEdit *COMLine;
     QPlainTextEdit *COMBox;
-    COMClass *comClass;
+    Ftd2xxInterface *comClass;
 
 };
 

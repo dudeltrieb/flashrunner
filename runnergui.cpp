@@ -1,7 +1,9 @@
 #include "runnergui.h"
+#ifdef Q_WS_WIN
 #include "windows.h"
-#include "ftd2xx.h"
-#include "comclass.h"
+#endif
+#include <ftd2xx.h>
+#include "ftd2xxinterface.h"
 
 
 RunnerGUI::RunnerGUI(QWidget *parent) : QWidget(parent)
@@ -22,7 +24,7 @@ RunnerGUI::RunnerGUI(QWidget *parent) : QWidget(parent)
     setWindowTitle("flashrunner");
 }
 
-void RunnerGUI::Init(COMClass *comClass)
+void RunnerGUI::Init(Ftd2xxInterface *comClass)
 {
     this->comClass = comClass;
 }

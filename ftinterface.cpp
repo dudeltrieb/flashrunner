@@ -1,6 +1,6 @@
-#include "ftd2xxinterface.h"
+#include "ftinterface.h"
 
-Ftd2xxInterface::Ftd2xxInterface()
+FtInterface::FtInterface()
 {
     ftStatus = FT_Open(1, &ftHandle);
     if(ftStatus != FT_OK) { // FT_Open failed
@@ -21,7 +21,7 @@ Ftd2xxInterface::Ftd2xxInterface()
 
 }
 
-void Ftd2xxInterface::SendString(QString Message)
+void FtInterface::SendString(QString Message)
 {
     char neu[1024] = "";
     strcpy(neu, (Message+ "\r").toAscii().data());

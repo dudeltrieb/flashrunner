@@ -6,12 +6,12 @@ TEMPLATE = app
 SOURCES += main.cpp \
     runnergui.cpp \
     readingthread.cpp \
-    ftd2xxinterface.cpp
+    ftinterface.cpp
 
 HEADERS  += \
     runnergui.h \
     readingthread.h \
-    ftd2xxinterface.h
+    ftinterface.h
 
 include(ftd2xx.pri)
 

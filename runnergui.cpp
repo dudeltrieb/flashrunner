@@ -3,7 +3,7 @@
 #include "windows.h"
 #endif
 #include <ftd2xx.h>
-#include "ftd2xxinterface.h"
+#include "ftinterface.h"
 
 
 RunnerGUI::RunnerGUI(QWidget *parent) : QWidget(parent)
@@ -24,7 +24,7 @@ RunnerGUI::RunnerGUI(QWidget *parent) : QWidget(parent)
     setWindowTitle("flashrunner");
 }
 
-void RunnerGUI::Init(Ftd2xxInterface *comClass)
+void RunnerGUI::Init(FtInterface *comClass)
 {
     this->comClass = comClass;
 }
@@ -33,7 +33,6 @@ void RunnerGUI::SetDescription(QString Desc)
 {
     COMName->setText(Desc);
 }
-
 
 void RunnerGUI::MessageEntered()
 {

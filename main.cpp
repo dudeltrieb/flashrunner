@@ -2,13 +2,13 @@
 
 #include "runnergui.h"
 #include "readingthread.h"
-#include "ftd2xxinterface.h"
+#include "ftinterface.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    Ftd2xxInterface comClass;
+    FtInterface comClass;
 
     RunnerGUI runnerGUI;
     runnerGUI.Init(&comClass);

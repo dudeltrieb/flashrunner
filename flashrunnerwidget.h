@@ -1,17 +1,17 @@
-#ifndef RUNNERGUI_H
-#define RUNNERGUI_H
+#ifndef FLASHRUNNERWIDGET_H
+#define FLASHRUNNERWIDGET_H
 
 #include <QWidget>
 #include <QtGui>
 #include "ftinterface.h"
 
 
-class RunnerGUI : public QWidget
+class FlashRunnerWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    RunnerGUI(QWidget *parent = 0);
+    FlashRunnerWidget(QWidget *parent = 0);
     void setInterface(FtInterface *interface);
 
 public slots:
@@ -29,4 +29,4 @@ private:
 };
 
 
-#endif // RUNNERGUI_H
+#endif // FLASHRUNNERWIDGET_H

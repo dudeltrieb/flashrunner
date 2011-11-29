@@ -1,7 +1,6 @@
 #include <QtGui/QApplication>
 
-#include "runnergui.h"
-#include "readingthread.h"
+#include "flashrunnerwidget.h"
 #include "ftinterface.h"
 
 int main(int argc, char *argv[])
@@ -10,13 +9,9 @@ int main(int argc, char *argv[])
 
     FtInterface interface;
 
-    RunnerGUI runnerGUI;
-    runnerGUI.setInterface(&interface);
-    runnerGUI.show();
-
-    ReadingThread readingThread;
-    readingThread.start();
-    qDebug() << "hello from GUI thread " << a.thread()->currentThreadId();
+    FlashRunnerWidget flashRunnerWidget;
+    flashRunnerWidget.setInterface(&interface);
+    flashRunnerWidget.show();
 
     return a.exec();
 }

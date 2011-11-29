@@ -1,4 +1,4 @@
-#include "runnergui.h"
+#include "flashrunnerwidget.h"
 #ifdef Q_WS_WIN
 #include "windows.h"
 #endif
@@ -6,7 +6,7 @@
 #include "ftinterface.h"
 
 
-RunnerGUI::RunnerGUI(QWidget *parent) : QWidget(parent)
+FlashRunnerWidget::FlashRunnerWidget(QWidget *parent) : QWidget(parent)
 {
     setWindowTitle("flashrunner");
 
@@ -25,17 +25,17 @@ RunnerGUI::RunnerGUI(QWidget *parent) : QWidget(parent)
     connect(_commandLineEdit, SIGNAL(returnPressed()), this, SLOT(sendCommand()));
 }
 
-void RunnerGUI::setInterface(FtInterface *interface)
+void FlashRunnerWidget::setInterface(FtInterface *interface)
 {
     _interface = interface;
 }
 
-void RunnerGUI::setStatus(const QString &status)
+void FlashRunnerWidget::setStatus(const QString &status)
 {
     _statusLabel->setText(status);
 }
 
-void RunnerGUI::sendCommand()
+void FlashRunnerWidget::sendCommand()
 {
     QString command = _commandLineEdit->text();
     _commandLineEdit->clear();
@@ -46,7 +46,7 @@ void RunnerGUI::sendCommand()
     _logTextEdit->appendPlainText(command);
 }
 
-void RunnerGUI::messageReceived(const QString& message)
+void FlashRunnerWidget::messageReceived(const QString& message)
 {
     _logTextEdit->appendPlainText("Message");
 }

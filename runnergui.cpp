@@ -40,7 +40,7 @@ void RunnerGUI::MessageEntered()
     COMLine->clear();
     COMLine->setFocus(Qt::OtherFocusReason);
 
-    comClass->SendString(Message);
+    comClass->send(Message);
 
     COMBox->appendPlainText(Message);
 

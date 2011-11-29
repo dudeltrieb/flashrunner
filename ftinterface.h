@@ -3,7 +3,7 @@
 
 #include <QtGui>
 #ifdef Q_WS_WIN
-#include "windows.h"
+#include "windows.h"    // not sure why if this is required on Windows
 #endif
 #include <ftd2xx.h>
 
@@ -11,18 +11,12 @@ class FtInterface
 {
 public:
     FtInterface();
-    FT_HANDLE ftHandle;
-    FT_DEVICE ftDevice;
-    FT_STATUS ftStatus;
 
 public slots:
-    void SendString(QString Message);
+    void send(const QString& message);
 
 private:
-
-    DWORD deviceID;
-    char serialNumber[16];
-    char description[64];
+    FT_HANDLE _ftHandle;
 };
 
 #endif // FTINTERFACE_H

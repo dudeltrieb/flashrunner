@@ -1,6 +1,7 @@
 #include "ftinterface.h"
 
-FtInterface::FtInterface()
+FtInterface::FtInterface(QObject *parent)
+    : QObject(parent)
 {
     FT_STATUS ftStatus;
     FT_DEVICE ftDevice;
@@ -23,8 +24,7 @@ FtInterface::FtInterface()
     ftStatus = FT_SetDataCharacteristics(_ftHandle, 8, 1, 0);
     ftStatus = FT_SetTimeouts(_ftHandle, 5000, 0);
 
-    qDebug() << "hello from GUI thread " << description;
-
+    startTimer(100);    // fires a timerEvent every 100 milliseconds
 }
 
 void FtInterface::send(const QString& message)
@@ -39,4 +39,15 @@ void FtInterface::send(const QString& message)
                     messageWithCarriageReturn.toAscii().data(),
                     messageWithCarriageReturn.toAscii().length(),
                     &numBytesWritten);
+}
+
+void FtInterface::timerEvent(QTimerEvent * event)
+{
+    Q_UNUSED(event)
+
+    // check if chars have been received.
+
+    // when some are available, read them and...
+
+    // emit messageReceived(message)
 }

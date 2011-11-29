@@ -7,13 +7,21 @@
 #endif
 #include <ftd2xx.h>
 
-class FtInterface
+class FtInterface : public QObject
 {
+    Q_OBJECT
+
 public:
-    FtInterface();
+    FtInterface(QObject *parent = 0);
+
+signals:
+    void messageReceived(const QString& message);
 
 public slots:
     void send(const QString& message);
+
+protected:
+    void timerEvent(QTimerEvent *);
 
 private:
     FT_HANDLE _ftHandle;

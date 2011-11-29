@@ -5,7 +5,6 @@
 #include <QtGui>
 #include "ftinterface.h"
 
-
 class FlashRunnerWidget : public QWidget
 {
     Q_OBJECT
@@ -27,6 +26,5 @@ private:
     QPlainTextEdit *_logTextEdit;
     FtInterface *_interface;
 };
-
 
 #endif // FLASHRUNNERWIDGET_H

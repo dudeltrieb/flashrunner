@@ -8,10 +8,10 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    FtInterface comClass;
+    FtInterface interface;
 
     RunnerGUI runnerGUI;
-    runnerGUI.Init(&comClass);
+    runnerGUI.setInterface(&interface);
     runnerGUI.show();
 
     ReadingThread readingThread;

@@ -8,47 +8,47 @@
 
 RunnerGUI::RunnerGUI(QWidget *parent) : QWidget(parent)
 {
-    COMName = new QLabel("no connection");
-    COMLine = new QLineEdit();
-    COMBox = new QPlainTextEdit();
-    COMBox->setReadOnly(true);
-
-    connect(COMLine, SIGNAL(returnPressed()), this, SLOT(MessageEntered()));
-
-    QGridLayout *layout1 = new QGridLayout;
-    layout1->addWidget(COMName);
-    layout1->addWidget(COMLine);
-    layout1->addWidget(COMBox);
-
-    setLayout(layout1);
     setWindowTitle("flashrunner");
+
+    _statusLabel = new QLabel("no connection");
+    _commandLineEdit = new QLineEdit();
+    _logTextEdit = new QPlainTextEdit();
+    _logTextEdit->setReadOnly(true);
+
+    QGridLayout *layout = new QGridLayout;
+    layout->addWidget(_statusLabel);
+    layout->addWidget(_commandLineEdit);
+    layout->addWidget(_logTextEdit);
+
+    setLayout(layout);
+
+    connect(_commandLineEdit, SIGNAL(returnPressed()), this, SLOT(sendCommand()));
 }
 
-void RunnerGUI::Init(FtInterface *comClass)
+void RunnerGUI::setInterface(FtInterface *interface)
 {
-    this->comClass = comClass;
+    _interface = interface;
 }
 
-void RunnerGUI::SetDescription(QString Desc)
+void RunnerGUI::setStatus(const QString &status)
 {
-    COMName->setText(Desc);
+    _statusLabel->setText(status);
 }
 
-void RunnerGUI::MessageEntered()
+void RunnerGUI::sendCommand()
 {
-    QString Message = COMLine->text();
-    COMLine->clear();
-    COMLine->setFocus(Qt::OtherFocusReason);
+    QString command = _commandLineEdit->text();
+    _commandLineEdit->clear();
+    _commandLineEdit->setFocus(Qt::OtherFocusReason);
 
-    comClass->send(Message);
+    _interface->send(command);
 
-    COMBox->appendPlainText(Message);
-
+    _logTextEdit->appendPlainText(command);
 }
 
-void RunnerGUI::MessageReceived(QString Message)
+void RunnerGUI::messageReceived(const QString& message)
 {
-    COMBox->appendPlainText("Message");
+    _logTextEdit->appendPlainText("Message");
 }
 
 

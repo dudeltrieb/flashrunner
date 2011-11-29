@@ -12,20 +12,20 @@ class RunnerGUI : public QWidget
 
 public:
     RunnerGUI(QWidget *parent = 0);
-    void Init(FtInterface *comClass);
-
+    void setInterface(FtInterface *interface);
 
 public slots:
-    void MessageEntered();
-    void MessageReceived(QString Message);
-    void SetDescription(QString Desc);
+    void setStatus(const QString& status);
+    void messageReceived(const QString& message);
+
+private slots:
+    void sendCommand();
 
 private:
-    QLabel *COMName;
-    QLineEdit *COMLine;
-    QPlainTextEdit *COMBox;
-    FtInterface *comClass;
-
+    QLabel *_statusLabel;
+    QLineEdit *_commandLineEdit;
+    QPlainTextEdit *_logTextEdit;
+    FtInterface *_interface;
 };
 
 

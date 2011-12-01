@@ -1,10 +1,6 @@
 #include "flashrunnerwidget.h"
-#ifdef Q_WS_WIN
-#include "windows.h"
-#endif
-#include <ftd2xx.h>
-#include "ftinterface.h"
 
+#include "ftinterface.h"
 
 FlashRunnerWidget::FlashRunnerWidget(QWidget *parent) : QWidget(parent)
 {
@@ -25,9 +21,9 @@ FlashRunnerWidget::FlashRunnerWidget(QWidget *parent) : QWidget(parent)
     connect(_commandLineEdit, SIGNAL(returnPressed()), this, SLOT(sendCommand()));
 }
 
-void FlashRunnerWidget::setInterface(FtInterface *interface)
+void FlashRunnerWidget::setInterface(FtInterface *ftInterface)
 {
-    _interface = interface;
+    _interface = ftInterface;
 }
 
 void FlashRunnerWidget::setStatus(const QString &status)

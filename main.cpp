@@ -7,10 +7,10 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    FtInterface interface;
+    FtInterface ftInterface;
 
     FlashRunnerWidget flashRunnerWidget;
-    flashRunnerWidget.setInterface(&interface);
+    flashRunnerWidget.setInterface(&ftInterface);
     flashRunnerWidget.show();
 
     return a.exec();

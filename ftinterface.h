@@ -1,11 +1,12 @@
 #ifndef FTINTERFACE_H
 #define FTINTERFACE_H
 
-#include <QtGui>
+#include <QtCore/QObject>
+
 #ifdef Q_WS_WIN
-#include "windows.h"    // not sure why if this is required on Windows
+#include <windows.h>    // not sure why if this is required on Windows
 #endif
-#include <ftd2xx.h>
+#include "ftd2xx.h"
 
 class FtInterface : public QObject
 {

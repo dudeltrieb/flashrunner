@@ -3,7 +3,8 @@
 
 #include <QWidget>
 #include <QtGui>
-#include "ftinterface.h"
+
+class FtInterface;
 
 class FlashRunnerWidget : public QWidget
 {
@@ -11,7 +12,7 @@ class FlashRunnerWidget : public QWidget
 
 public:
     FlashRunnerWidget(QWidget *parent = 0);
-    void setInterface(FtInterface *interface);
+    void setInterface(FtInterface *ftInterface);
 
 public slots:
     void setStatus(const QString& status);

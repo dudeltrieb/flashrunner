@@ -5,6 +5,7 @@ unix {
 
 win32 {
     INCLUDEPATH += c:/myLib
-    LIBS += -Lc:/myLib/i386
+    LIBS += -Ld:/Libraries/FTDI
     LIBS += -lftd2xx
+
 }

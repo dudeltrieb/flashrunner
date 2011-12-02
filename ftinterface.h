@@ -14,6 +14,7 @@ class FtInterface : public QObject
 
 public:
     FtInterface(QObject *parent = 0);
+    QString getStatus();
 
 signals:
     void messageReceived(const QString& message);
@@ -26,6 +27,7 @@ protected:
 
 private:
     FT_HANDLE _ftHandle;
+    char description[64];
 };
 
 #endif // FTINTERFACE_H

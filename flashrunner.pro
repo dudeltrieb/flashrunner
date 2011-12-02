@@ -9,7 +9,7 @@ SOURCES += main.cpp \
 
 HEADERS  += \
     flashrunnerwidget.h \
-    ftinterface.h
+    ftinterface.h \
 
 include(ftd2xx.pri)
 

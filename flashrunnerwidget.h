@@ -15,7 +15,6 @@ public:
     void setInterface(FtInterface *ftInterface);
 
 public slots:
-    void setStatus(const QString& status);
     void messageReceived(const QString& message);
 
 private slots:

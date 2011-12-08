@@ -20,9 +20,7 @@ FlashRunnerWidget::FlashRunnerWidget(QWidget *parent) : QWidget(parent)
 
     setLayout(layout);
 
-
     connect(_commandLineEdit, SIGNAL(returnPressed()), this, SLOT(sendCommand()));
-
 }
 
 void FlashRunnerWidget::setInterface(FtInterface *ftInterface)
@@ -30,19 +28,22 @@ void FlashRunnerWidget::setInterface(FtInterface *ftInterface)
     _interface = ftInterface;
     connect(_interface, SIGNAL(messageReceived(QString)), this, SLOT(messageReceived(QString)));
 
-    _statusLabel->setText(_interface->getStatus());
+    _statusLabel->setText(_interface->description());
 }
 
 void FlashRunnerWidget::sendCommand()
 {
     QString command = _commandLineEdit->text();
     _commandLineEdit->clear();
-    _commandLineEdit->setFocus(Qt::OtherFocusReason);
 
-    _interface->send(command);
+    _logTextEdit->moveCursor(QTextCursor::End);
+
+    if (!_interface->send(command)) {
+        _logTextEdit->insertPlainText("Couldn´t send command: " + _interface->lastError());
+    }
 
     if (command.length() > 0)
-        _logTextEdit->appendPlainText(command);
+        _logTextEdit->insertPlainText(command);
 }
 
 void FlashRunnerWidget::messageReceived(const QString& message)

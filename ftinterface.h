@@ -14,20 +14,26 @@ class FtInterface : public QObject
 
 public:
     FtInterface(QObject *parent = 0);
-    QString getStatus();
+    virtual ~FtInterface();
+    bool open(int channel);
+    bool isOpen() const;
+    bool close();
+    QString description() const;
+    QString lastError() const;
+
+    bool send(const QString& message);
 
 signals:
     void messageReceived(const QString& message);
-
-public slots:
-    void send(const QString& message);
 
 protected:
     void timerEvent(QTimerEvent *);
 
 private:
     FT_HANDLE _ftHandle;
-    char description[64];
+    QString _description;
+    int _receiverTimerId;
+    QString _lastError;
 };
 
 #endif // FTINTERFACE_H

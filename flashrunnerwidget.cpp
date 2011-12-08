@@ -36,6 +36,8 @@ void FlashRunnerWidget::sendCommand()
     QString command = _commandLineEdit->text();
     _commandLineEdit->clear();
 
+    // required because we use insertPlainText() below instead of appendPlainText()
+    // which also inserts line feeds we don´t want
     _logTextEdit->moveCursor(QTextCursor::End);
 
     if (!_interface->send(command)) {

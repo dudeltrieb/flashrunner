@@ -7,5 +7,4 @@ win32 {
     INCLUDEPATH += d:/Libraries/FTDI
     LIBS += -Ld:/Libraries/FTDI
     LIBS += -lftd2xx
-
 }

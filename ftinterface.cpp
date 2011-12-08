@@ -18,8 +18,7 @@ bool FtInterface::open(int channel)
     FT_STATUS ftStatus;
     FT_DEVICE ftDevice;
     DWORD deviceID;
-    char serialNumber[16];
-    char description[64];
+    char serialNumber[16];    
 
     if (isOpen()) {
         close();

@@ -20,7 +20,9 @@ FlashRunnerWidget::FlashRunnerWidget(QWidget *parent) : QWidget(parent)
 
     setLayout(layout);
 
+
     connect(_commandLineEdit, SIGNAL(returnPressed()), this, SLOT(sendCommand()));
+
 }
 
 void FlashRunnerWidget::setInterface(FtInterface *ftInterface)
@@ -28,7 +30,11 @@ void FlashRunnerWidget::setInterface(FtInterface *ftInterface)
     _interface = ftInterface;
     connect(_interface, SIGNAL(messageReceived(QString)), this, SLOT(messageReceived(QString)));
 
+<<<<<<< HEAD
     _statusLabel->setText(_interface->description());
+=======
+    _statusLabel->setText(_interface->getStatus());
+>>>>>>> 37b1c7b8b0ba58bf5fea5abda9070042a1dd556d
 }
 
 void FlashRunnerWidget::sendCommand()
@@ -45,7 +51,11 @@ void FlashRunnerWidget::sendCommand()
     }
 
     if (command.length() > 0)
+<<<<<<< HEAD
         _logTextEdit->insertPlainText(command);
+=======
+        _logTextEdit->appendPlainText(command);
+>>>>>>> 37b1c7b8b0ba58bf5fea5abda9070042a1dd556d
 }
 
 void FlashRunnerWidget::messageReceived(const QString& message)
